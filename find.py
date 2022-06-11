@@ -121,9 +121,6 @@ if __name__ == "__main__":
         print("Matrix is empty")
     print("-----------")
 
-
-    print("")
-    print("-----------")
     print("PATTERN")
 
     pattern = create_matrix.create_matrix_from_file('pattern.txt')
@@ -132,10 +129,6 @@ if __name__ == "__main__":
         print(pattern)
     else:
         print("Pattern is empty")
-    print("-----------")
-
-
-    print(pattern)
     print("-----------")
 
     input_number_format = create_matrix.create_matrix_from_file('input.txt')
@@ -148,7 +141,6 @@ if __name__ == "__main__":
     # using str() to convert each element to string 
     res_pattern = [[str(ele) for ele in sub] for sub in pattern_number_format]
     
-
     txt = res_input 
     
     pat = res_pattern
