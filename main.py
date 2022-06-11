@@ -7,8 +7,12 @@ import find
 matrix = []
 
 matrix = create_matrix.create_matrix_from_file()
-print(matrix)
+
+if matrix.any():
+    print(matrix)
+else:
+    print("Matrix is empty")
 
 result_find = []
 
-find.findall(0, matrix)
+find.find_all_single_element(0, matrix)
