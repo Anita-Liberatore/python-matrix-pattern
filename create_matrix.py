@@ -12,8 +12,8 @@ def create_matrix(my_row, my_column):
         print()
     print("")
 
-def create_matrix_from_file():
-    f = open ('input.txt' , 'r')
+def create_matrix_from_file(file_name):
+    f = open (file_name , 'r')
     matrix = []
     matrix = [line.split() for line in f]
     matrix=np.array(matrix)
