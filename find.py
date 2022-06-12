@@ -133,22 +133,20 @@ if __name__ == "__main__":
 
     input_number_format = create_matrix.create_matrix_from_file('input.txt')
       
-    # using str() to convert each element to string 
     res_input = [[str(ele) for ele in sub] for sub in input_number_format]
 
     pattern_number_format = create_matrix.create_matrix_from_file('pattern.txt')
       
-    # using str() to convert each element to string 
     res_pattern = [[str(ele) for ele in sub] for sub in pattern_number_format]
     
     txt = res_input 
     
     pat = res_pattern
     
-    txtRow = 3
-    txtCol = 3
+    txtRow = len(input_number_format)
+    txtCol = len(input_number_format[0])
     
-    patRow = 2
-    patCol = 2
+    patRow = len(pattern_number_format)
+    patCol = len(pattern_number_format[0])
     
     search(txt, pat)
