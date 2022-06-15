@@ -145,6 +145,7 @@ search(txt, pat)
 def query_yes_no(question):
 
     question = "Do you want to rotate the matrix? [y/n] "
+    question_rotate = "How many degres do you want to rotate? "
 
     active = True
     while active:
@@ -153,6 +154,9 @@ def query_yes_no(question):
 
         if choice in 'y':
             active = True
+            sys.stdout.write(question_rotate)
+            rotate_choice = input().lower()
+            print(rotate_choice)
         elif choice in 'n':
             active = False
             print("Program exit")
