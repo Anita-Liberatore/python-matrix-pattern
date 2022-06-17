@@ -1,6 +1,7 @@
 from sys import flags
 import sys
 import create_matrix
+import matrix_rotate
 
 
 def find_all_single_element(element, matrix):
@@ -109,7 +110,8 @@ def search(txt, pat):
     if flag == 0:
         print("Pattern not found")
      
- 
+
+
 print("-----------")
 matrix = []
 print("MATRIX")
@@ -123,44 +125,74 @@ print(pattern)
 
 
 input_number_format = create_matrix.create_matrix_from_file('input.txt')
-        
+            
 res_input = [[str(ele) for ele in sub] for sub in input_number_format]
 
 pattern_number_format = create_matrix.create_matrix_from_file('pattern.txt')
-        
+            
 res_pattern = [[str(ele) for ele in sub] for sub in pattern_number_format]
-        
+            
 txt = res_input 
-        
+            
 pat = res_pattern
-        
+            
 txtRow = len(input_number_format)
 txtCol = len(input_number_format[0])
-        
+            
 patRow = len(pattern_number_format)
 patCol = len(pattern_number_format[0])
-        
+            
 search(txt, pat)
 
-def query_yes_no(question):
+question = "Do you want to rotate the matrix? [y/n] "
+question_rotate = "How many degres do you want to rotate? "
 
-    question = "Do you want to rotate the matrix? [y/n] "
-    question_rotate = "How many degres do you want to rotate? "
+active = True
+while active:
+    sys.stdout.write(question)
+    choice = input().lower()
 
-    active = True
-    while active:
-        sys.stdout.write(question)
-        choice = input().lower()
+    if choice in 'y':
+        active = True
+        sys.stdout.write(question_rotate)
+        rotate_choice = input().lower()
+        print(rotate_choice)
 
-        if choice in 'y':
-            active = True
-            sys.stdout.write(question_rotate)
-            rotate_choice = input().lower()
-            print(rotate_choice)
-        elif choice in 'n':
-            active = False
-            print("Program exit")
-        else:
-            sys.stdout.write("Please respond with 'yes' or 'no' " "(or 'y' or 'n').\n")
+        print("")
 
-query_yes_no("Do you want to rotate the matrix")
+        print("-----------")
+        matrix = []
+        print("MATRIX")
+        matrix = create_matrix.create_matrix_from_file('input.txt')
+        print(matrix)
+
+        print("PATTERN ROTATE ")
+        pattern = create_matrix.create_matrix_from_file('pattern.txt')
+        pattern_ruotate = matrix_rotate.operation(pattern, rotate_choice)
+       
+        print(pattern_ruotate)
+
+
+        input_number_format = create_matrix.create_matrix_from_file('input.txt')
+                    
+        res_input = [[str(ele) for ele in sub] for sub in input_number_format]
+                    
+        res_pattern_rotate = [[str(ele) for ele in sub] for sub in pattern_ruotate]
+                    
+        txt = res_input 
+                    
+        pat = res_pattern_rotate
+                    
+        txtRow = len(input_number_format)
+        txtCol = len(input_number_format[0])
+                    
+        patRow = len(res_pattern_rotate)
+        patCol = len(res_pattern_rotate[0])
+                    
+        search(txt, pat)
+
+    elif choice in 'n':
+        active = False
+        print("Program exit")
+    else:
+        sys.stdout.write("Please respond with 'yes' or 'no' " "(or 'y' or 'n').\n")
